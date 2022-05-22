@@ -10,10 +10,7 @@ var auditTimeBlock = function() {
     var timeBlockHour = $(".time-block")
     for (var i = 0; i <= timeBlockHour.length-1; i++) {
         var thisTimeBlock = timeBlockHour;
-        console.log(thisTimeBlock[i]);
-        console.log(currentHour);
         var blockTime = timeBlockHour[i].id.split("-")[1];
-        console.log(blockTime);
         if (currentHour < blockTime){
             $(thisTimeBlock[i]).addClass("future");
         } else if (currentHour > blockTime) {
@@ -23,6 +20,9 @@ var auditTimeBlock = function() {
         }
     }
 };
+
 setInterval(function() {
     auditTimeBlock();
 },1000 * 60);
+
+auditTimeBlock();
