@@ -43,7 +43,17 @@ $(".saveBtn").on("click", function(){
 window.onload = (event) =>{
     event.preventDefault();
     console.log("test");
-    $("#hour-09 .description").val(localStorage.getItem("hour-09"));
+    var timeBlockEl = $(".time-block");
+    for(var i = 0; i < timeBlockEl.length; i++) {
+        //(".description").val(localStorage.getItem)
+        var hour = timeBlockEl[i].id;
+        console.log(hour);
+        var savedInfo = localStorage.getItem(hour);
+        console.log(savedInfo);
+        console.log(timeBlockEl[i].children[1]);
+        timeBlockEl[i].children[1].textContent = savedInfo;
+    }
+    //$("#hour-09 .description").val(localStorage.getItem("hour-09"));
 }
 
 //auditTimeBlock();
