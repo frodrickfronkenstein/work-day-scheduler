@@ -27,6 +27,8 @@ $(".saveBtn").on("click", function(){
     //get text from text area
     var thisParent = $(this).parent();
     console.log(thisParent);
+    thisId = thisParent[0].id;
+    console.log(thisId);
     var txt = thisParent.find(".description").val();
     console.log(txt);
 
