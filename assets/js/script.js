@@ -39,8 +39,15 @@ $(".saveBtn").on("click", function(){
     localStorage.setItem(thisId, thisText);
 })
 
+// display local storage data when screen refreshes or loads
+window.onload = (event) =>{
+    event.preventDefault();
+    console.log("test");
+    $("#hour-09 .description").val(localStorage.getItem("hour-09"));
+}
 
 //auditTimeBlock();
+auditTimeBlock();
 // audits time blocks every minute, because I don't know how to call it every hour on the hour.
 setInterval(function() {
     auditTimeBlock();
