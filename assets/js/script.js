@@ -23,18 +23,14 @@ var auditTimeBlock = function() {
 
 // save text field to local storage
 $(".saveBtn").on("click", function(){
-    console.log("clicked");
     var thisParent = $(this).parent();
-    console.log(thisParent);
     //get text from text area
     var thisText = thisParent.find(".description")
     .val()
     .trim();
-    console.log(thisText);
     // get parent id
     var thisId = thisParent
         .attr("id");
-    console.log(thisId);
     // save to local storage
     localStorage.setItem(thisId, thisText);
 })
@@ -42,18 +38,13 @@ $(".saveBtn").on("click", function(){
 // display local storage data when screen refreshes or loads
 window.onload = (event) =>{
     event.preventDefault();
-    console.log("test");
     var timeBlockEl = $(".time-block");
     for(var i = 0; i < timeBlockEl.length; i++) {
         //(".description").val(localStorage.getItem)
         var hour = timeBlockEl[i].id;
-        console.log(hour);
         var savedInfo = localStorage.getItem(hour);
-        console.log(savedInfo);
-        console.log(timeBlockEl[i].children[1]);
         timeBlockEl[i].children[1].textContent = savedInfo;
     }
-    //$("#hour-09 .description").val(localStorage.getItem("hour-09"));
 }
 
 //auditTimeBlock();
