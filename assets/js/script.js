@@ -4,7 +4,7 @@ $("#currentDay").text(
 );
 
 // color timeblocks according to time of day
-var currentHour = 14;//moment().format("H");
+var currentHour = moment().format("H");
 
 var auditTimeBlock = function() {
     var timeBlockHour = $(".time-block")
@@ -23,4 +23,6 @@ var auditTimeBlock = function() {
         }
     }
 };
-auditTimeBlock();
+setInterval(function() {
+    auditTimeBlock();
+},1000 * 60);
