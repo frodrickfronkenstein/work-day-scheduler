@@ -24,19 +24,24 @@ var auditTimeBlock = function() {
 // save text field to local storage
 $(".saveBtn").on("click", function(){
     console.log("clicked");
-    //get text from text area
     var thisParent = $(this).parent();
     console.log(thisParent);
-    thisId = thisParent[0].id;
+    //get text from text area
+    var thisText = thisParent.find(".description")
+    .val()
+    .trim();
+    console.log(thisText);
+    // get parent id
+    var thisId = thisParent
+        .attr("id");
     console.log(thisId);
-    var txt = thisParent.find(".description").val();
-    console.log(txt);
-
+    // save to local storage
+    localStorage.setItem(thisId, thisText);
 })
 
+
+//auditTimeBlock();
 // audits time blocks every minute, because I don't know how to call it every hour on the hour.
 setInterval(function() {
     auditTimeBlock();
 },1000 * 60);
-
-auditTimeBlock();
